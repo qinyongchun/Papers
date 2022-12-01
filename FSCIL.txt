@@ -1,4 +1,5 @@
 TOPIC：
+Few-Shot Class-Incremental Learning
 
 提出了可以用neural gas network去学习特征向量的拓扑结构，其实有点像原形网络，区别是原型网络只对结果有约束，但是他
 对于特征空间的结构进行约束，相当于进行了更高层面上的约束
@@ -15,6 +16,7 @@ TOPIC：
 
 
 CEC：
+Few-Shot Incremental Learning with Continually Evolved Classifiers
 
 提出了一个三阶段网络：1正常对D0做监督学习，2提出GAT注意力结构，用元学习方式训练（还是在D0上）对过往的所有原型向
 量都进行注意力计算，3在新数据集上学一个分类器（全连接）
@@ -28,6 +30,7 @@ CEC：
 小样本问题：参数比较少，只要训练一个分类器就可以
 
 FeSSSS
+Few-Shot Class Incremental Learning Leveraging Self-Supervised Features
 
 做了特征融合，既然小样本的难点在于数据不足，那么就引入自监督模型，通过数据融合涨点。主要有意思的点在于，这篇文章证
 明了，采用softmax方式也可以做增量学习，只要把原有线性层的参数复制过去就可以。
@@ -39,6 +42,7 @@ FeSSSS
 小样本：
 
 FACT
+Forward Compatible Few-Shot Class-Incremental Learning
 
 提出了一种想法，训练时可以提前为未来的类别扩展做准备，具体方法是假定存在若干个虚拟类，训练base类时目标是双峰分布，
 增量时新的类别的原型向量根据虚拟类别组和得到。个人理解，此方法暗含了一种假设：新旧类别所需要的特征具有相似性，这样

@@ -1,4 +1,5 @@
 LwF：
+Learning without Forgetting
 
 基于正则化的方法
 使用蒸馏的方法保留旧有知识。theta_s, theta_o, theta_n分别表示特征层，旧的分类头，新的头
@@ -11,6 +12,7 @@ s解冻，做联合训练
 
 
 iCaRL：
+iCaRL: Incremental Classifier and Representation Learning
 
 基于重演的方法
 设定一个固定大小集合用于保存旧的训练样例
@@ -27,6 +29,7 @@ iCaRL：
 
 
 DMC：
+Class-incremental Learning via Deep Model Consolidation
 
 作者自己称既不属于正则化也不属于重演，但我觉得还是在做一种正则化，更像是LwF++
 
@@ -46,6 +49,7 @@ LwF的新类直接拿ground truth做label，DMC对训练的logits做了归一化
 
 
 IL2M：
+IL2M: Class Incremental Learning With Dual Memory
 
 本文作者说在基于重演的方式中，蒸馏损失会对模型有害，因为蒸馏的前提是老师模型得到了充分、平衡的训练，
 而这在CIL中是不存在的，对于我们做小样本的更是如此
@@ -87,6 +91,18 @@ Large Scale Incremental Learning
 于是很自然地想到在输出后面再加上一层全连接，正常Lc+Ld训练以后冻结前面的，单独训练一个线性层
 
 想法很简单、实验很简单，效过很惊艳，实验部分还要多看
+
+
+
+EEIL：
+End-to-End Incremental Learning
+
+比较早期的一种CIL方法，基本上就是在LwF基础上加上了对旧类别的记忆
+数据集更新方式 和iCaRl基本上是一样的，独特之处有两点：
+1，蒸馏损失把每次增量时的logits，单独拆开来，而不是像LwF一样混在一起
+2，提出了balanced fine-tunning，正常训练以后，用一样数量的新旧类finetunning模型，可以纠正bias
+
+
 
 
 
